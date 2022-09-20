@@ -2,11 +2,11 @@ from InputValidator import InputValidator
 import Scraper
 
 def main():
-  foodType = input("What would you like to eat?")
+  foodType = input("What would you like to eat? ")
   if InputValidator.ValidateInputCousine( foodType ):
-    Scraper.Start()
+    Scraper.Start(foodType)
   else:
-    print("Try again")
+    print("Invalid input. Terminating.")
   
 
   
