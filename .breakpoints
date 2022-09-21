@@ -1,3 +1,24 @@
 {
-  "files": {}
+  "files": {
+    "Scraper.py": [
+      {
+        "id": "b866aa66-2587-41b5-88fe-179f47f81ccd",
+        "line": 9,
+        "version": 1062,
+        "index": 102
+      },
+      {
+        "id": "bddc0e90-c149-47ce-9b1e-3d99a1773008",
+        "line": 35,
+        "version": 1062,
+        "index": 736
+      },
+      {
+        "id": "7e5b19b8-51ee-4622-8323-dacbc3f66a6e",
+        "line": 46,
+        "version": 1062,
+        "index": 1187
+      }
+    ]
+  }
 }
