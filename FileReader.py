@@ -13,7 +13,7 @@ class InputValidator:
 
 def GetWebSitesList() -> list:
     file = open(filename, 'r')
-    sites = file.readlines()
+    sites = file.read().splitlines()
     file.close()
     return sites
 
