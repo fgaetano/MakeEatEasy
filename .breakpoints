@@ -2,10 +2,16 @@
   "files": {
     "Scraper.py": [
       {
-        "id": "8616d7b8-3054-4d75-8d9c-0ed6a0322088",
-        "line": 38,
-        "version": 1510,
-        "index": 928
+        "id": "1841ed18-cbcc-4a86-8f22-97996d04f878",
+        "line": 34,
+        "version": 1904,
+        "index": 662
+      },
+      {
+        "id": "20bfb6f8-85ee-4003-89d6-2d536dc1caba",
+        "line": 60,
+        "version": 1983,
+        "index": 1691
       }
     ]
   }

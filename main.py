@@ -1,21 +1,15 @@
-from InputValidator import InputValidator
 import Scraper
+import GuiBuilder
 
 
 def main():
-    foodType = input("What would you like to eat? ")
-    if InputValidator.ValidateInputCousine(foodType):
-        kws = list()
-        print("What do you have in your fridge? (insert 's' to terminate")
-        kw = input()
-        while kw != "s":
-            kws.append(kw)
-            kw = input()
-        Scraper.Start(foodType, kws)
-
-    else:
-        print("Invalid cousine. Terminating.")
-
+    GuiBuilder.ShowSplashScreen()
+    params = GuiBuilder.BuildMainWindow()
+    if params is not None:
+      foodType = params["-COUSINE-"][0]
+      kws = params["-INGREDIENTS-"]
+      Scraper.Start(foodType, kws)
+    return;
 
 if __name__ == "__main__":
     main()

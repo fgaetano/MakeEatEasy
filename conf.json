@@ -1,3 +1,5 @@
 {
-  "MaxResNumDisplayed": 20
+  "MaxResNumDisplayed": 20,
+  "cousines":["italian","indian"],
+  "ingredients":["zucchini","paprika"]
 }

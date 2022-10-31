@@ -290,6 +290,14 @@ python-versions = ">=3.6.8"
 diagrams = ["railroad-diagrams", "jinja2"]
 
 [[package]]
+name = "pysimplegui"
+version = "4.60.4"
+description = "Python GUIs for Humans. Launched in 2018. It's 2022 & PySimpleGUI is an ACTIVE & supported project. Super-simple to create custom GUI's. 325+ Demo programs & Cookbook for rapid start. Extensive documentation. Main docs at www.PySimpleGUI.org. Fun & your success are the focus. Examples using Machine Learning (GUI, OpenCV Integration), Rainmeter Style Desktop Widgets, Matplotlib + Pyplot, PIL support, add GUI to command line scripts, PDF & Image Viewers. Great for beginners & advanced GUI programmers."
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "python-lsp-jsonrpc"
 version = "1.0.0"
 description = "JSON RPC 2.0 server library"
@@ -511,7 +519,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.8.0,<3.9"
-content-hash = "045a89a671bf9dab0d79fbda9e33556a7f96279f94e62141fcd9eda6a96cf254"
+content-hash = "860697991bdf315c6bcf22cd1f9459b865803d821761f393aafd4b7c45b8edc8"
 
 [metadata.files]
 aiohttp = []
@@ -540,6 +548,7 @@ parso = []
 pluggy = []
 pyflakes = []
 pyparsing = []
+pysimplegui = []
 python-lsp-jsonrpc = []
 python-lsp-server = []
 pytoolconfig = []
