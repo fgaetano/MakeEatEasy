@@ -32,16 +32,24 @@ def BuildMainWindow() -> dict:
 
 def BuildDisplayWindow( urls ):
   font = ('Courier New', 16, 'underline')
-  layout = [[uiHandler.Text(urls[idx], tooltip=urls[idx], enable_events=True, font=font,
+  col = [[uiHandler.Text(urls[idx], tooltip=urls[idx], enable_events=True, font=font,
     key=f'URL {urls[idx]}')] for idx in range(len(urls))]
+  layout = [
+    [uiHandler.Column(col, size=(1000, 800), scrollable=True, key = "Column")],
+    [uiHandler.Exit(), uiHandler.Button('Up', key = "up"), uiHandler.Button('Down', key = "down")],
+]
   window = uiHandler.Window('Results', layout, finalize=True)
 
   firstLink = True
   while True:
     event, values = window.read()
     print(event)
-    if event == uiHandler.WINDOW_CLOSED:
+    if event == uiHandler.WINDOW_CLOSED or event=="Exit":
         break
+    elif event == "down":
+        window['Column'].Widget.canvas.yview_moveto(1.0)
+    elif event == "up":
+        window['Column'].Widget.canvas.yview_moveto(0.0)
     elif event.startswith("URL "):
         url = event.split(' ')[2].strip()
         print(url)
