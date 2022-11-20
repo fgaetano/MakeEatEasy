@@ -1,5 +1,6 @@
 import PySimpleGUI as uiHandler
 import FileReader
+import webbrowser
 
 ss_image = './img/splash_screen.png'
 ss_display_time_ms = 4000
@@ -25,19 +26,31 @@ def BuildMainWindow() -> dict:
 
   window = uiHandler.Window("WuhToEat", layout )
   event, values = window.read()
-  #if event( uiHandler.WIN_CLOSED, 'EXIT' ):
-    #return 
   if event=="search" or event == uiHandler.WIN_CLOSED:
     window.close()
     return values
 
-def BuildDisplayWindow( links ):
-  #Todo: see https://stackoverflow.com/questions/66866390/in-pysimplegui-how-can-i-have-a-hyperlink-in-a-text-field to crate links to website
-  layout = [[uiHandler.Listbox(values = links, size=(80,40))],
-           [uiHandler.Button("Close")]]
-  window = uiHandler.Window("Results", layout)
-  event = window.read()
-  if event == "Close" or event == uiHandler.WIN_CLOSED:
-    return
+def BuildDisplayWindow( urls ):
+  font = ('Courier New', 16, 'underline')
+  layout = [[uiHandler.Text(urls[idx], tooltip=urls[idx], enable_events=True, font=font,
+    key=f'URL {urls[idx]}')] for idx in range(len(urls))]
+  window = uiHandler.Window('Results', layout, finalize=True)
+
+  firstLink = True
+  while True:
+    event, values = window.read()
+    print(event)
+    if event == uiHandler.WINDOW_CLOSED:
+        break
+    elif event.startswith("URL "):
+        url = event.split(' ')[2].strip()
+        print(url)
+        if firstLink:
+          webbrowser.open_new(url)
+          firstLink = False
+        else:
+          webbrowser.open_new_tab(url)
+
+  window.close()
   
   

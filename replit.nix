@@ -1,5 +1,7 @@
 { pkgs }: {
   deps = [
+    pkgs.chromedriver
+    pkgs.sudo
     pkgs.python38Full
   ];
   env = {
