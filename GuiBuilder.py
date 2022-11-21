@@ -4,6 +4,8 @@ import webbrowser
 
 ss_image = './img/splash_screen.png'
 ss_display_time_ms = 4000
+def_width = 600
+def_height = 600
 
 class GuiBuilder:
 
@@ -11,7 +13,8 @@ class GuiBuilder:
         pass
 
 def ShowSplashScreen():
-  uiHandler.Window("WuhToEat",[[uiHandler.Image(ss_image)]]).read(timeout=ss_display_time_ms, close=True)
+  uiHandler.theme("DarkTeal 6")
+  uiHandler.Window("WuhToEat", [[uiHandler.Image(ss_image)]], size = (def_width,def_height)).read(timeout=ss_display_time_ms, close=True)
 
 def BuildMainWindow() -> dict:
   conf = FileReader.LoadConfiguration()
@@ -24,21 +27,22 @@ def BuildMainWindow() -> dict:
            [uiHandler.Listbox(values=ingredients, size=(30,3), select_mode="multiple", key="-INGREDIENTS-") ],
            [uiHandler.Button("search"), uiHandler.Exit() ] ]
 
-  window = uiHandler.Window("WuhToEat", layout )
+  window = uiHandler.Window("WuhToEat", layout, size = (def_width,def_height), resizable=True, finalize=True )
+
   event, values = window.read()
   if event=="search" or event == uiHandler.WIN_CLOSED:
     window.close()
     return values
 
 def BuildDisplayWindow( urls ):
-  font = ('Courier New', 16, 'underline')
+  font = ('Courier New', 10)
   col = [[uiHandler.Text(urls[idx], tooltip=urls[idx], enable_events=True, font=font,
     key=f'URL {urls[idx]}')] for idx in range(len(urls))]
   layout = [
-    [uiHandler.Column(col, size=(1000, 800), scrollable=True, key = "Column")],
+    [uiHandler.Column(col, scrollable=True, key = "Column", expand_x=True, expand_y=True)],
     [uiHandler.Exit(), uiHandler.Button('Up', key = "up"), uiHandler.Button('Down', key = "down")],
 ]
-  window = uiHandler.Window('Results', layout, finalize=True)
+  window = uiHandler.Window('Results', layout, resizable=True, finalize=True, size = (def_width,def_height))
 
   firstLink = True
   while True:
