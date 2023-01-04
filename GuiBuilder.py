@@ -14,7 +14,7 @@ class GuiBuilder:
 
 def ShowSplashScreen():
   uiHandler.theme("DarkTeal 6")
-  uiHandler.Window("WuhToEat", [[uiHandler.Image(ss_image)]], size = (def_width,def_height)).read(timeout=ss_display_time_ms, close=True)
+  uiHandler.Window("MakeEatEasy", [[uiHandler.Image(ss_image)]], size = (def_width,def_height)).read(timeout=ss_display_time_ms, close=True)
 
 def BuildMainWindow() -> dict:
   conf = FileReader.LoadConfiguration()
@@ -22,9 +22,9 @@ def BuildMainWindow() -> dict:
   ingredients = conf["ingredients"]
 
   layout=[ [uiHandler.Text("What would you like to eat?", font='lucida', justification='left') ],
-           [uiHandler.Listbox(values=cousines, size=(30,3), select_mode="single", key="-COUSINE-") ],
+           [uiHandler.Listbox(values=cousines, size=(50,3), select_mode="single", key="-COUSINE-") ],
            [uiHandler.Text("What do you have in your fridge?", font='lucida', justification='left') ],
-           [uiHandler.Listbox(values=ingredients, size=(30,3), select_mode="multiple", key="-INGREDIENTS-") ],
+           [uiHandler.Listbox(values=ingredients, size=(50,3), select_mode="multiple", key="-INGREDIENTS-") ],
            [uiHandler.Button("search"), uiHandler.Exit() ] ]
 
   window = uiHandler.Window("WuhToEat", layout, size = (def_width,def_height), resizable=True, finalize=True )

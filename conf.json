@@ -1,5 +1,5 @@
 {
   "MaxResNumDisplayed": 20,
-  "cousines":["italian","indian"],
-  "ingredients":["zucchini","paprika"]
+  "cousines":["italian","indian","chinese","japanese","thai", "vietnamise", "mexican","french","german","ethiopian","american","argentinian","peruvian"],
+  "ingredients":["zucchini","paprika","tomatoes","potatoes","mushrooms","eggplants","broccoli","beetroot","cabbage","artichokes","asparagus","chicken","beef","turkey","pork","lamb","salmon","tuna","shrimps","mussels" ]
 }
