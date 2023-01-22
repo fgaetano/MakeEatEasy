@@ -18,16 +18,16 @@ def ShowSplashScreen():
 
 def BuildMainWindow() -> dict:
   conf = FileReader.LoadConfiguration()
-  cousines = conf["cousines"]
+  cuisines = conf["cuisines"]
   ingredients = conf["ingredients"]
 
   layout=[ [uiHandler.Text("What would you like to eat?", font='lucida', justification='left') ],
-           [uiHandler.Listbox(values=cousines, size=(50,3), select_mode="single", key="-COUSINE-") ],
+           [uiHandler.Listbox(values=cuisines, size=(50,3), select_mode="single", key="-CUISINE-") ],
            [uiHandler.Text("What do you have in your fridge?", font='lucida', justification='left') ],
            [uiHandler.Listbox(values=ingredients, size=(50,3), select_mode="multiple", key="-INGREDIENTS-") ],
            [uiHandler.Button("search"), uiHandler.Exit() ] ]
 
-  window = uiHandler.Window("WuhToEat", layout, size = (def_width,def_height), resizable=True, finalize=True )
+  window = uiHandler.Window("MakeEatEasy", layout, size = (def_width,def_height), resizable=True, finalize=True )
 
   event, values = window.read()
   if event=="search" or event == uiHandler.WIN_CLOSED:

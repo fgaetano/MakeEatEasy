@@ -32,7 +32,7 @@ class Scraper:
     pass
 
 
-def Start(cousine: str, keywords: list):
+def Start(cuisine: str, keywords: list):
   res = []
   conf = FileReader.LoadConfiguration()
 
@@ -40,7 +40,7 @@ def Start(cousine: str, keywords: list):
   for url in websites:
     print("sending request to " + url)
     res.append("Results from " + url)
-    searchRequest = url + search[url] + cousine
+    searchRequest = url + search[url] + cuisine
     for kw in keywords:
       searchRequest += separators[url] + kw
     httpResponse = requests.get(searchRequest)
